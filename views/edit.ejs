@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Post</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            Quora
+        </div>
+
+        <a href="/posts" class="header-btn">
+            All Posts
+        </a>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h1 class="form-title">
+                Edit Post
+            </h1>
+
+            <p class="form-subtitle">
+                Update your post content
+            </p>
+
+
+            <form
+                action="/posts/<%= post.id %>?_method=PATCH"
+                method="POST"
+            >
+
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    value="<%= post.username %>"
+                    disabled
+                >
+
+
+                <label for="content">
+                    Post Content
+                </label>
+
+                <textarea
+                    id="content"
+                    name="content"
+                    required
+                ><%= post.content %></textarea>
+
+
+                <button type="submit">
+                    Update Post
+                </button>
+
+            </form>
+
+
+            <a
+                href="/posts/<%= post.id %>"
+                class="back-btn"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

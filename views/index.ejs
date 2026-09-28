@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Quora</div>
+
+        <a href="/posts/new" class="new-post-btn">
+            New Post
+        </a>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+        <h1 class="page-title">Quora Posts</h1>
+
+        <% for (let post of posts) { %>
+
+            <div class="post">
+
+                <h3 class="user">
+                    @<%= post.username %>
+                </h3>
+
+                <h4 class="content">
+                    <%= post.content %>
+                </h4>
+
+                <div class="post-buttons">
+
+                    <!-- See in Detail -->
+                    <a href="/posts/<%= post.id %>" class="detail-btn">
+                        See in Detail
+                    </a>
+
+                    <!-- Edit -->
+                    <a href="/posts/<%= post.id %>/edit" class="edit-btn">
+                        Edit
+                    </a>
+
+                    <!-- Delete -->
+                    <form action="/posts/<%= post.id %>?_method=DELETE"
+                          method="POST"
+                          style="display: inline;">
+
+                        <button type="submit" class="delete-btn">
+                            Delete
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+    </main>
+
+</body>
+</html>
